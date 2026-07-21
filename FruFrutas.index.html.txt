@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FruFrutas - Delivery de Frutas e Sucos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fundo: #FDFBF7; /* Creme do fundo da imagem */
+            --rosa: #D85A8A; /* Rosa vibrante das bordas */
+            --laranja: #F28C38; /* Laranja da logo */
+            --amarelo: #F1B44C; /* Amarelo da logo/frutas */
+            --verde-texto: #2E4A35; /* Verde escuro do texto */
+            --branco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        
+        body { background-color: var(--fundo); color: var(--verde-texto); line-height: 1.6; }
+
+        /* HEADER & HERO */
+        header { background: linear-gradient(135deg, var(--rosa), var(--laranja)); color: var(--branco); text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--amarelo); }
+        header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
+        header h1 span { color: var(--amarelo); }
+        header p { font-size: 1.1rem; }
+
+        /* PROMOÇÃO DA SEMANA */
+        .promo-banner { background-color: var(--amarelo); color: var(--verde-texto); text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.85; } 100% { opacity: 1; } }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+
+        /* SEÇÃO TÍTULOS */
+        .section-title { text-align: center; color: var(--laranja); font-size: 2rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title span { color: var(--rosa); }
+
+        /* CARDÁPIO GRID */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .menu-category { background: var(--branco); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rosa); }
+        .category-title { color: var(--amarelo); font-size: 1.4rem; text-align: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .menu-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; }
+        .menu-price { color: var(--verde-texto); font-weight: 700; }
+        .menu-desc { font-size: 0.85rem; color: #666; display: block; margin-top: -5px; margin-bottom: 10px; font-weight: normal; }
+
+        /* FORMULÁRIO DE PEDIDO */
+        .order-section { background: var(--branco); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--laranja); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--rosa); }
+        input[type="text"], input[type="tel"], textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; color: var(--verde-texto); }
+        textarea { resize: vertical; min-height: 100px; }
+        
+        /* RADIOS (ENTREGA/RETIRADA) */
+        .radio-group { display: flex; gap: 20px; margin-top: 10px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; color: var(--verde-texto); }
+        
+        /* INFOS DINÂMICAS */
+        .info-box { background-color: #fff3f6; border-left: 4px solid var(--rosa); padding: 15px; margin-top: 15px; border-radius: 4px; display: none; }
+        .info-box.active { display: block; }
+        .info-box p { margin-bottom: 5px; font-size: 0.95rem; }
+
+        .btn-pedir { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 18px; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .btn-pedir:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); }
+
+        footer { text-align: center; padding: 20px; color: var(--rosa); font-weight: 600; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fru<span>Fru</span>tas</h1>
+        <p>Saúde, frescor e sabor direto para você!</p>
+    </header>
+
+    <div class="promo-banner">
+        🔥 PROMOÇÃO DA SEMANA: Compre 1 Salada de Frutas 500g e ganhe o adicional de Leite em Pó por nossa conta! 🔥
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Nosso <span>Cardápio</span></h2>
+
+        <!-- GRID DO CARDÁPIO (Baseado na sua imagem) -->
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3 class="category-title" style="color: var(--laranja);">FRUTAS</h3>
+                <div class="menu-item"><span>Melancia</span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Melão</span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Mamão <small style="color:var(--rosa);">500g</small></span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Manga</span> <span class="menu-price">R$10,00</span></div>
+                <div class="menu-item"><span>Abacaxi</span> <span class="menu-price">R$9,00</span></div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="category-title" style="color: var(--amarelo);">SUCOS <small style="color:var(--rosa);">300ml</small></h3>
+                <div class="menu-item"><span>Abacaxi com Hortelã</span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Melancia com Limão</span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Laranja com Acerola</span> <span class="menu-price">R$9,00</span></div>
+                <div class="menu-item"><span>Manga com Laranja</span> <span class="menu-price">R$9,00</span></div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="category-title" style="color: var(--laranja);">SALADA DE FRUTA</h3>
+                <span class="menu-desc">Monte com: Manga, Maçã, Banana, Mamão, Laranja, Melão, Abacaxi</span>
+                <div class="menu-item"><span>Tamanho <small style="color:var(--rosa);">500g</small></span> <span class="menu-price">R$10,00</span></div>
+                <div class="menu-item"><span>Tamanho <small style="color:var(--rosa);">300g</small></span> <span class="menu-price">R$6,00</span></div>
+                <br>
+                <span class="menu-desc" style="color: var(--verde-texto); font-weight: bold;">Acrescente na salada (+ R$2,00):</span>
+                <span class="menu-desc">Leite Condensado, Leite em Pó, Creme de Leite, Granola</span>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="category-title" style="color: var(--amarelo);">VITAMINAS <small style="color:var(--rosa);">300ml</small></h3>
+                <div class="menu-item"><span>Abacate</span> <span class="menu-price">R$6,00</span></div>
+                <div class="menu-item"><span>Banana</span> <span class="menu-price">R$6,00</span></div>
+                <div class="menu-item"><span>Banana e Mamão</span> <span class="menu-price">R$8,00</span></div>
+                <div class="menu-item"><span>Banana e Maçã</span> <span class="menu-price">R$8,00</span></div>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO DE PEDIDOS -->
+        <div class="order-section" id="fazer-pedido">
+            <h2 class="section-title">Faça seu <span>Pedido</span></h2>
+            
+            <div class="form-group">
+                <label>Seu Nome:</label>
+                <input type="text" id="cli_nome" placeholder="Como podemos te chamar?">
+            </div>
+
+            <div class="form-group">
+                <label>O que você vai querer hoje?</label>
+                <textarea id="cli_pedido" placeholder="Ex: 1 Suco de Melancia com Limão, 1 Salada de 500g com Leite Condensado..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Como deseja receber?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="tipo_entrega" value="entrega" onchange="alternarEntrega()" checked> Entrega
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="tipo_entrega" value="retirada" onchange="alternarEntrega()"> Retirada no Local
+                    </label>
+                </div>
+            </div>
+
+            <!-- Box Dinâmico para Entrega -->
+            <div id="box-entrega" class="info-box active">
+                <p>🛵 <strong>Taxa de entrega:</strong> O valor do frete será calculado e informado pelo WhatsApp após o envio do pedido.</p>
+                <br>
+                <label style="color: var(--verde-texto);">Endereço Completo para Entrega:</label>
+                <input type="text" id="cli_endereco" placeholder="Rua, Número, Bairro, Ponto de Referência">
+            </div>
+
+            <!-- Box Dinâmico para Retirada -->
+            <div id="box-retirada" class="info-box">
+                <p>📍 <strong>Nosso Endereço para Retirada:</strong></p>
+                <p>Rua Exemplo das Frutas, 123 - Bairro Centro</p>
+                <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Aguarde nossa confirmação de que o pedido está pronto antes de vir buscar!</p>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label>Forma de Pagamento:</label>
+                <select id="cli_pagamento">
+                    <option value="Pix Online (Chave enviada no Whats)">Pix Online (Pagamento Antecipado)</option>
+                    <option value="Pix na Entrega">Pix (Pagamento na Entrega/Retirada)</option>
+                    <option value="Cartão de Crédito na Entrega">Cartão de Crédito (Levamos a maquininha)</option>
+                    <option value="Cartão de Débito na Entrega">Cartão de Débito (Levamos a maquininha)</option>
+                </select>
+            </div>
+
+            <button class="btn-pedir" onclick="enviarPedido()">Enviar Pedido pelo WhatsApp 📲</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>FruFrutas © 2026 - Feito com muito sabor e carinho.</p>
+    </footer>
+
+    <script>
+        // Função para alternar os campos de Entrega ou Retirada
+        function alternarEntrega() {
+            const tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
+            const boxEntrega = document.getElementById('box-entrega');
+            const boxRetirada = document.getElementById('box-retirada');
+
+            if (tipo === 'entrega') {
+                boxEntrega.classList.add('active');
+                boxRetirada.classList.remove('active');
+            } else {
+                boxEntrega.classList.remove('active');
+                boxRetirada.classList.add('active');
+            }
+        }
+
+        // Função para formatar a mensagem e abrir o WhatsApp
+        function enviarPedido() {
+            const numeroWhatsApp = "5521999999999"; // COLOQUE SEU NÚMERO AQUI (DDD + NUMERO)
+            
+            const nome = document.getElementById('cli_nome').value;
+            const pedido = document.getElementById('cli_pedido').value;
+            const tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
+            const pagamento = document.getElementById('cli_pagamento').value;
+            
+            if (!nome || !pedido) {
+                alert("Por favor, preencha seu nome e o que deseja pedir!");
+                return;
+            }
+
+            let textoMsg = `*NOVO PEDIDO - FRUFRUTAS* 🍉\n\n`;
+            textoMsg += `👤 *Cliente:* ${nome}\n`;
+            textoMsg += `📝 *Pedido:* ${pedido}\n\n`;
+            
+            if (tipo === 'entrega') {
+                const endereco = document.getElementById('cli_endereco').value;
+                if (!endereco) { alert("Preencha o endereço de entrega!"); return; }
+                textoMsg += `🛵 *Modalidade:* Entrega\n`;
+                textoMsg += `📍 *Endereço:* ${endereco}\n`;
+                textoMsg += `*(Aguardando cálculo do frete)*\n\n`;
+            } else {
+                textoMsg += `🛍️ *Modalidade:* Retirada no Local\n\n`;
+            }
+
+            textoMsg += `💳 *Pagamento:* ${pagamento}`;
+
+            // Codifica a mensagem e abre o app
+            const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(textoMsg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
+
