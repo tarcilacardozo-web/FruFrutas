@@ -154,7 +154,7 @@
             <!-- Box Dinâmico para Retirada -->
             <div id="box-retirada" class="info-box">
                 <p>📍 <strong>Nosso Endereço para Retirada:</strong></p>
-                <p>Rua Exemplo das Frutas, 123 - Bairro Centro</p>
+                <p>Via C9, 24 - Bairro Vila Pinheiro/ Maré</p>
                 <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Aguarde nossa confirmação de que o pedido está pronto antes de vir buscar!</p>
             </div>
 
@@ -194,7 +194,7 @@
 
         // Função para formatar a mensagem e abrir o WhatsApp
         function enviarPedido() {
-            const numeroWhatsApp = "5521999999999"; // COLOQUE SEU NÚMERO AQUI (DDD + NUMERO)
+            const numeroWhatsApp = "5521976615011"; // COLOQUE SEU NÚMERO AQUI (DDD + NUMERO)
             
             const nome = document.getElementById('cli_nome').value;
             const pedido = document.getElementById('cli_pedido').value;
