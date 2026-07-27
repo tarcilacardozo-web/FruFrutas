@@ -7,68 +7,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --fundo: #FDFBF7;
-            --rosa: #D85A8A;
-            --laranja: #F28C38;
-            --amarelo: #F1B44C;
-            --verde-texto: #2E4A35;
+            --fundo-pagina: #F9F6EE; /* Tom creme do cardápio */
+            --rosa-moldura: #D86B8B;  /* Rosa do contorno */
+            --amarelo-dourado: #E5A23B;/* Amarelo/Laranja do título */
+            --verde-texto: #1E3B2B;   /* Verde escuro dos textos */
             --branco: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--fundo); color: var(--verde-texto); line-height: 1.6; padding-bottom: 30px; }
+        body { background-color: var(--fundo-pagina); color: var(--verde-texto); line-height: 1.6; padding-bottom: 30px; }
 
-        header { background: linear-gradient(135deg, var(--rosa), var(--laranja)); color: var(--branco); text-align: center; padding: 35px 20px; border-bottom: 5px solid var(--amarelo); }
+        header { background: linear-gradient(135deg, var(--rosa-moldura), #C45575); color: var(--branco); text-align: center; padding: 35px 20px; border-bottom: 5px solid var(--amarelo-dourado); }
         header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 5px; }
-        header h1 span { color: var(--amarelo); }
+        header h1 span { color: var(--amarelo-dourado); }
         header p { font-size: 1.1rem; }
 
-        .promo-banner { background-color: var(--amarelo); color: var(--verde-texto); text-align: center; padding: 12px; font-weight: bold; font-size: 1.1rem; }
+        .promo-banner { background-color: var(--amarelo-dourado); color: var(--branco); text-align: center; padding: 12px; font-weight: bold; font-size: 1.1rem; }
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        .section-title { text-align: center; color: var(--laranja); font-size: 1.8rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .section-title span { color: var(--rosa); }
+        .section-title { text-align: center; color: var(--amarelo-dourado); font-size: 1.8rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        .section-title span { color: var(--rosa-moldura); }
 
-        .menu-category { background: var(--branco); padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rosa); margin-bottom: 25px; }
-        .category-title { color: var(--laranja); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--fundo); padding-bottom: 8px; font-weight: 700; }
+        .menu-category { background: var(--branco); padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(216, 107, 139, 0.12); border: 2px solid var(--rosa-moldura); margin-bottom: 25px; }
+        .category-title { color: var(--amarelo-dourado); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--fundo-pagina); padding-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #eee; }
+        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #EED8E0; }
         .product-item:last-child { border-bottom: none; }
         .product-info { flex: 1; padding-right: 10px; }
-        .product-name { font-weight: 600; font-size: 1rem; }
-        .product-price { color: var(--rosa); font-weight: 700; font-size: 0.95rem; }
+        .product-name { font-weight: 600; font-size: 1rem; color: var(--verde-texto); }
+        .product-price { color: var(--verde-texto); font-weight: 700; font-size: 0.95rem; }
 
         .qty-controls { display: flex; align-items: center; gap: 8px; }
-        .qty-btn { background-color: var(--fundo); border: 1px solid var(--rosa); color: var(--rosa); width: 32px; height: 32px; border-radius: 50%; font-weight: bold; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
-        .qty-btn:active { background-color: var(--rosa); color: var(--branco); }
-        .qty-number { font-weight: bold; min-width: 20px; text-align: center; font-size: 1rem; }
+        .qty-btn { background-color: var(--fundo-pagina); border: 1px solid var(--rosa-moldura); color: var(--rosa-moldura); width: 32px; height: 32px; border-radius: 50%; font-weight: bold; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .qty-btn:active { background-color: var(--rosa-moldura); color: var(--branco); }
+        .qty-number { font-weight: bold; min-width: 20px; text-align: center; font-size: 1rem; color: var(--verde-texto); }
 
-        .extra-box { background: #fff8f9; padding: 12px; border-radius: 8px; margin-top: 10px; border: 1px solid #f3d2de; }
-        .extra-title { font-size: 0.9rem; font-weight: bold; color: var(--rosa); margin-bottom: 8px; }
-        .extra-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.9rem; }
+        .extra-box { background: #FAF2F5; padding: 12px; border-radius: 8px; margin-top: 10px; border: 1px solid var(--rosa-moldura); }
+        .extra-title { font-size: 0.9rem; font-weight: bold; color: var(--rosa-moldura); margin-bottom: 8px; }
+        .extra-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.9rem; color: var(--verde-texto); }
 
-        .order-section { background: var(--branco); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 2px solid var(--laranja); margin-top: 30px; }
+        .order-section { background: var(--branco); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid var(--amarelo-dourado); margin-top: 30px; }
         .form-group { margin-bottom: 18px; }
-        label { display: block; font-weight: bold; margin-bottom: 6px; color: var(--rosa); font-size: 0.95rem; }
-        input[type="text"], textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; color: var(--verde-texto); }
+        label { display: block; font-weight: bold; margin-bottom: 6px; color: var(--rosa-moldura); font-size: 0.95rem; }
+        input[type="text"], textarea, select { width: 100%; padding: 12px; border: 1px solid #DDD; border-radius: 8px; font-size: 1rem; color: var(--verde-texto); background-color: var(--fundo-pagina); }
         textarea { resize: vertical; min-height: 80px; }
         
         .radio-group { display: flex; gap: 20px; margin-top: 8px; }
-        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; color: var(--verde-texto); }
 
-        .info-box { background-color: #fff3f6; border-left: 4px solid var(--rosa); padding: 12px; margin-top: 12px; border-radius: 4px; display: none; font-size: 0.9rem; }
+        .info-box { background-color: #FAF2F5; border-left: 4px solid var(--rosa-moldura); padding: 12px; margin-top: 12px; border-radius: 4px; display: none; font-size: 0.9rem; }
         .info-box.active { display: block; }
 
         .total-card { background: var(--verde-texto); color: var(--branco); text-align: center; padding: 15px; border-radius: 10px; margin: 20px 0; font-size: 1.3rem; font-weight: bold; }
-        .total-card span { color: var(--amarelo); }
+        .total-card span { color: var(--amarelo-dourado); }
 
         .btn-pedir { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 16px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
 
-        footer { text-align: center; padding: 20px; color: var(--rosa); font-weight: 600; font-size: 0.9rem; }
+        /* ESTILOS DO POP-UP (MODAL) */
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
+        .popup-card { background: var(--branco); border-radius: 20px; border: 3px solid var(--rosa-moldura); max-width: 450px; width: 100%; padding: 25px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; animation: popIn 0.3s ease; }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .popup-close { position: absolute; top: 12px; right: 15px; font-size: 1.5rem; font-weight: bold; color: var(--rosa-moldura); cursor: pointer; line-height: 1; }
+        .popup-badge { background: var(--amarelo-dourado); color: var(--branco); font-weight: bold; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; text-transform: uppercase; display: inline-block; margin-bottom: 12px; }
+        .popup-title { color: var(--rosa-moldura); font-size: 1.5rem; margin-bottom: 10px; }
+        .popup-text { color: var(--verde-texto); font-size: 1rem; margin-bottom: 20px; }
+        .btn-fechar-popup { background: var(--rosa-moldura); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; }
+
+        footer { text-align: center; padding: 20px; color: var(--rosa-moldura); font-weight: 600; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
+    <!-- POP-UP DE NOVIDADES E PROMOÇÕES -->
+    <div class="popup-overlay" id="popupPromo">
+        <div class="popup-card">
+            <span class="popup-close" onclick="fecharPopup()">&times;</span>
+            <span class="popup-badge">✨ Novidade Fresquinha</span>
+            <h2 class="popup-title">Cardápio Novo no Ar! 🎉</h2>
+            <p class="popup-text">
+                Agora temos novos lanches deliciosos, vitaminas reforçadas e você ainda pode pagar com <strong>VR Benefícios</strong> na entrega!
+            </p>
+            <button class="btn-fechar-popup" onclick="fecharPopup()">Ver Cardápio 🍓</button>
+        </div>
+    </div>
 
     <header>
         <h1>Fru<span>Fru</span>tas</h1>
@@ -226,7 +248,7 @@
 
             <div id="box-retirada" class="info-box">
                 <p>📍 <strong>Endereço para Retirada:</strong></p>
-                <p>Via C9,24 - Vila Pinheiro/Mare - Bairro Bonsucesso</p>
+                <p>Via C9, 24- Vila Pinheiro (Maré) - Bairro Bonsucesso</p>
             </div>
 
             <div class="form-group" style="margin-top: 15px;">
@@ -250,6 +272,11 @@
     </footer>
 
     <script>
+        // Função para fechar o Pop-up
+        function fecharPopup() {
+            document.getElementById('popupPromo').style.display = 'none';
+        }
+
         const produtos = {
             'fruta_melancia': { nome: 'Melancia (500ml)', preco: 8.00 },
             'fruta_melao': { nome: 'Melão (500ml)', preco: 9.00 },
@@ -315,7 +342,7 @@
         }
 
         function enviarPedido() {
-            const numeroWhatsApp = "5521976615011"; // Substitua pelo seu número real com DDD
+            const numeroWhatsApp = "5521976615011"; // Lembre de colocar seu número com DDD
             
             const nome = document.getElementById('cli_nome').value;
             const obs = document.getElementById('cli_obs').value;
