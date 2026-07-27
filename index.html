@@ -1,69 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FruFrutas - Delivery de Frutas e Sucos</title>
+    <title>FruFrutas - Delivery de Frutas, Sucos e Lanches</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --fundo: #FDFBF7; /* Creme do fundo da imagem */
-            --rosa: #D85A8A; /* Rosa vibrante das bordas */
-            --laranja: #F28C38; /* Laranja da logo */
-            --amarelo: #F1B44C; /* Amarelo da logo/frutas */
-            --verde-texto: #2E4A35; /* Verde escuro do texto */
+            --fundo: #FDFBF7;
+            --rosa: #D85A8A;
+            --laranja: #F28C38;
+            --amarelo: #F1B44C;
+            --verde-texto: #2E4A35;
             --branco: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        
-        body { background-color: var(--fundo); color: var(--verde-texto); line-height: 1.6; }
+        body { background-color: var(--fundo); color: var(--verde-texto); line-height: 1.6; padding-bottom: 30px; }
 
-        /* HEADER & HERO */
-        header { background: linear-gradient(135deg, var(--rosa), var(--laranja)); color: var(--branco); text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--amarelo); }
-        header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
+        header { background: linear-gradient(135deg, var(--rosa), var(--laranja)); color: var(--branco); text-align: center; padding: 35px 20px; border-bottom: 5px solid var(--amarelo); }
+        header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 5px; }
         header h1 span { color: var(--amarelo); }
         header p { font-size: 1.1rem; }
 
-        /* PROMOÇÃO DA SEMANA */
-        .promo-banner { background-color: var(--amarelo); color: var(--verde-texto); text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.85; } 100% { opacity: 1; } }
+        .promo-banner { background-color: var(--amarelo); color: var(--verde-texto); text-align: center; padding: 12px; font-weight: bold; font-size: 1.1rem; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        /* SEÇÃO TÍTULOS */
-        .section-title { text-align: center; color: var(--laranja); font-size: 2rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title { text-align: center; color: var(--laranja); font-size: 1.8rem; margin: 25px 0 15px; text-transform: uppercase; letter-spacing: 1px; }
         .section-title span { color: var(--rosa); }
 
-        /* CARDÁPIO GRID */
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        .menu-category { background: var(--branco); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rosa); }
-        .category-title { color: var(--amarelo); font-size: 1.4rem; text-align: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .menu-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; }
-        .menu-price { color: var(--verde-texto); font-weight: 700; }
-        .menu-desc { font-size: 0.85rem; color: #666; display: block; margin-top: -5px; margin-bottom: 10px; font-weight: normal; }
+        .menu-category { background: var(--branco); padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rosa); margin-bottom: 25px; }
+        .category-title { color: var(--laranja); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--fundo); padding-bottom: 8px; font-weight: 700; }
+        
+        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #eee; }
+        .product-item:last-child { border-bottom: none; }
+        .product-info { flex: 1; padding-right: 10px; }
+        .product-name { font-weight: 600; font-size: 1rem; }
+        .product-price { color: var(--rosa); font-weight: 700; font-size: 0.95rem; }
 
-        /* FORMULÁRIO DE PEDIDO */
-        .order-section { background: var(--branco); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--laranja); }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--rosa); }
-        input[type="text"], input[type="tel"], textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; color: var(--verde-texto); }
-        textarea { resize: vertical; min-height: 100px; }
+        .qty-controls { display: flex; align-items: center; gap: 8px; }
+        .qty-btn { background-color: var(--fundo); border: 1px solid var(--rosa); color: var(--rosa); width: 32px; height: 32px; border-radius: 50%; font-weight: bold; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+        .qty-btn:active { background-color: var(--rosa); color: var(--branco); }
+        .qty-number { font-weight: bold; min-width: 20px; text-align: center; font-size: 1rem; }
+
+        .extra-box { background: #fff8f9; padding: 12px; border-radius: 8px; margin-top: 10px; border: 1px solid #f3d2de; }
+        .extra-title { font-size: 0.9rem; font-weight: bold; color: var(--rosa); margin-bottom: 8px; }
+        .extra-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.9rem; }
+
+        .order-section { background: var(--branco); padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 2px solid var(--laranja); margin-top: 30px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: bold; margin-bottom: 6px; color: var(--rosa); font-size: 0.95rem; }
+        input[type="text"], textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; color: var(--verde-texto); }
+        textarea { resize: vertical; min-height: 80px; }
         
-        /* RADIOS (ENTREGA/RETIRADA) */
-        .radio-group { display: flex; gap: 20px; margin-top: 10px; }
-        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; color: var(--verde-texto); }
-        
-        /* INFOS DINÂMICAS */
-        .info-box { background-color: #fff3f6; border-left: 4px solid var(--rosa); padding: 15px; margin-top: 15px; border-radius: 4px; display: none; }
+        .radio-group { display: flex; gap: 20px; margin-top: 8px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+
+        .info-box { background-color: #fff3f6; border-left: 4px solid var(--rosa); padding: 12px; margin-top: 12px; border-radius: 4px; display: none; font-size: 0.9rem; }
         .info-box.active { display: block; }
-        .info-box p { margin-bottom: 5px; font-size: 0.95rem; }
 
-        .btn-pedir { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 18px; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
-        .btn-pedir:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); }
+        .total-card { background: var(--verde-texto); color: var(--branco); text-align: center; padding: 15px; border-radius: 10px; margin: 20px 0; font-size: 1.3rem; font-weight: bold; }
+        .total-card span { color: var(--amarelo); }
 
-        footer { text-align: center; padding: 20px; color: var(--rosa); font-weight: 600; margin-top: 40px; }
+        .btn-pedir { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 16px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+
+        footer { text-align: center; padding: 20px; color: var(--rosa); font-weight: 600; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -74,66 +76,137 @@
     </header>
 
     <div class="promo-banner">
-        🔥 PROMOÇÃO DA SEMANA: Compre 1 Salada de Frutas 500g e ganhe o adicional de Leite em Pó por nossa conta! 🔥
+        🍓 Faça seu pedido online com praticidade e receba onde estiver! 🥭
     </div>
 
     <div class="container">
         <h2 class="section-title">Nosso <span>Cardápio</span></h2>
 
-        <!-- GRID DO CARDÁPIO (Baseado na sua imagem) -->
-        <div class="menu-grid">
-            <div class="menu-category">
-                <h3 class="category-title" style="color: var(--laranja);">FRUTAS</h3>
-                <div class="menu-item"><span>Melancia</span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Melão</span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Mamão <small style="color:var(--rosa);">500g</small></span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Manga</span> <span class="menu-price">R$10,00</span></div>
-                <div class="menu-item"><span>Abacaxi</span> <span class="menu-price">R$9,00</span></div>
+        <!-- FRUTAS -->
+        <div class="menu-category">
+            <h3 class="category-title">FRUTAS (500ml)</h3>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Melancia</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('fruta_melancia', -1)">-</button><span class="qty-number" id="qty_fruta_melancia">0</span><button class="qty-btn" onclick="alterarQtd('fruta_melancia', 1)">+</button></div>
             </div>
-
-            <div class="menu-category">
-                <h3 class="category-title" style="color: var(--amarelo);">SUCOS <small style="color:var(--rosa);">300ml</small></h3>
-                <div class="menu-item"><span>Abacaxi com Hortelã</span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Melancia com Limão</span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Laranja com Acerola</span> <span class="menu-price">R$9,00</span></div>
-                <div class="menu-item"><span>Manga com Laranja</span> <span class="menu-price">R$9,00</span></div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Melão</div><div class="product-price">R$ 9,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('fruta_melao', -1)">-</button><span class="qty-number" id="qty_fruta_melao">0</span><button class="qty-btn" onclick="alterarQtd('fruta_melao', 1)">+</button></div>
             </div>
-
-            <div class="menu-category">
-                <h3 class="category-title" style="color: var(--laranja);">SALADA DE FRUTA</h3>
-                <span class="menu-desc">Monte com: Manga, Maçã, Banana, Mamão, Laranja, Melão, Abacaxi</span>
-                <div class="menu-item"><span>Tamanho <small style="color:var(--rosa);">500g</small></span> <span class="menu-price">R$10,00</span></div>
-                <div class="menu-item"><span>Tamanho <small style="color:var(--rosa);">300g</small></span> <span class="menu-price">R$6,00</span></div>
-                <br>
-                <span class="menu-desc" style="color: var(--verde-texto); font-weight: bold;">Acrescente na salada (+ R$2,00):</span>
-                <span class="menu-desc">Leite Condensado, Leite em Pó, Creme de Leite, Granola</span>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Mamão</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('fruta_mamao', -1)">-</button><span class="qty-number" id="qty_fruta_mamao">0</span><button class="qty-btn" onclick="alterarQtd('fruta_mamao', 1)">+</button></div>
             </div>
-
-            <div class="menu-category">
-                <h3 class="category-title" style="color: var(--amarelo);">VITAMINAS <small style="color:var(--rosa);">300ml</small></h3>
-                <div class="menu-item"><span>Abacate</span> <span class="menu-price">R$6,00</span></div>
-                <div class="menu-item"><span>Banana</span> <span class="menu-price">R$6,00</span></div>
-                <div class="menu-item"><span>Banana e Mamão</span> <span class="menu-price">R$8,00</span></div>
-                <div class="menu-item"><span>Banana e Maçã</span> <span class="menu-price">R$8,00</span></div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Manga</div><div class="product-price">R$ 10,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('fruta_manga', -1)">-</button><span class="qty-number" id="qty_fruta_manga">0</span><button class="qty-btn" onclick="alterarQtd('fruta_manga', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Abacaxi</div><div class="product-price">R$ 10,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('fruta_abacaxi', -1)">-</button><span class="qty-number" id="qty_fruta_abacaxi">0</span><button class="qty-btn" onclick="alterarQtd('fruta_abacaxi', 1)">+</button></div>
             </div>
         </div>
 
-        <!-- FORMULÁRIO DE PEDIDOS -->
-        <div class="order-section" id="fazer-pedido">
-            <h2 class="section-title">Faça seu <span>Pedido</span></h2>
+        <!-- SALADA DE FRUTA -->
+        <div class="menu-category">
+            <h3 class="category-title">SALADA DE FRUTA</h3>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Salada de Fruta 500ml</div><div class="product-price">R$ 12,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('salada_500', -1)">-</button><span class="qty-number" id="qty_salada_500">0</span><button class="qty-btn" onclick="alterarQtd('salada_500', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Salada de Fruta 300ml</div><div class="product-price">R$ 6,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('salada_300', -1)">-</button><span class="qty-number" id="qty_salada_300">0</span><button class="qty-btn" onclick="alterarQtd('salada_300', 1)">+</button></div>
+            </div>
+            <div class="extra-box">
+                <div class="extra-title">Acrescente na Salada (+ R$ 2,00 cada):</div>
+                <div class="extra-item"><span>Leite Condensado</span><div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('add_leite_cond', -1)">-</button><span class="qty-number" id="qty_add_leite_cond">0</span><button class="qty-btn" onclick="alterarQtd('add_leite_cond', 1)">+</button></div></div>
+                <div class="extra-item"><span>Leite em Pó</span><div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('add_leite_po', -1)">-</button><span class="qty-number" id="qty_add_leite_po">0</span><button class="qty-btn" onclick="alterarQtd('add_leite_po', 1)">+</button></div></div>
+                <div class="extra-item"><span>Creme de Leite</span><div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('add_creme_leite', -1)">-</button><span class="qty-number" id="qty_add_creme_leite">0</span><button class="qty-btn" onclick="alterarQtd('add_creme_leite', 1)">+</button></div></div>
+                <div class="extra-item"><span>Granola</span><div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('add_granola', -1)">-</button><span class="qty-number" id="qty_add_granola">0</span><button class="qty-btn" onclick="alterarQtd('add_granola', 1)">+</button></div></div>
+            </div>
+        </div>
+
+        <!-- LANCHES -->
+        <div class="menu-category">
+            <h3 class="category-title">LANCHES</h3>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Sanduíche de Frango</div><div class="product-price">R$ 10,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('lanche_frango', -1)">-</button><span class="qty-number" id="qty_lanche_frango">0</span><button class="qty-btn" onclick="alterarQtd('lanche_frango', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Sanduíche de Atum</div><div class="product-price">R$ 10,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('lanche_atum', -1)">-</button><span class="qty-number" id="qty_lanche_atum">0</span><button class="qty-btn" onclick="alterarQtd('lanche_atum', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Torta Salgada</div><div class="product-price">R$ 12,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('lanche_torta', -1)">-</button><span class="qty-number" id="qty_lanche_torta">0</span><button class="qty-btn" onclick="alterarQtd('lanche_torta', 1)">+</button></div>
+            </div>
+        </div>
+
+        <!-- SUCOS -->
+        <div class="menu-category">
+            <h3 class="category-title">SUCOS (300ml)</h3>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Abacaxi com Hortelã</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('suco_abacaxi_hortela', -1)">-</button><span class="qty-number" id="qty_suco_abacaxi_hortela">0</span><button class="qty-btn" onclick="alterarQtd('suco_abacaxi_hortela', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Melancia com Limão</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('suco_melancia_limao', -1)">-</button><span class="qty-number" id="qty_suco_melancia_limao">0</span><button class="qty-btn" onclick="alterarQtd('suco_melancia_limao', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Laranja com Acerola</div><div class="product-price">R$ 9,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('suco_laranja_acerola', -1)">-</button><span class="qty-number" id="qty_suco_laranja_acerola">0</span><button class="qty-btn" onclick="alterarQtd('suco_laranja_acerola', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Manga com Laranja</div><div class="product-price">R$ 9,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('suco_manga_laranja', -1)">-</button><span class="qty-number" id="qty_suco_manga_laranja">0</span><button class="qty-btn" onclick="alterarQtd('suco_manga_laranja', 1)">+</button></div>
+            </div>
+        </div>
+
+        <!-- VITAMINAS -->
+        <div class="menu-category">
+            <h3 class="category-title">VITAMINAS (300ml)</h3>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Abacate</div><div class="product-price">R$ 7,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('vit_abacate', -1)">-</button><span class="qty-number" id="qty_vit_abacate">0</span><button class="qty-btn" onclick="alterarQtd('vit_abacate', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Banana</div><div class="product-price">R$ 6,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('vit_banana', -1)">-</button><span class="qty-number" id="qty_vit_banana">0</span><button class="qty-btn" onclick="alterarQtd('vit_banana', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Banana e Mamão</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('vit_banana_mamao', -1)">-</button><span class="qty-number" id="qty_vit_banana_mamao">0</span><button class="qty-btn" onclick="alterarQtd('vit_banana_mamao', 1)">+</button></div>
+            </div>
+            <div class="product-item">
+                <div class="product-info"><div class="product-name">Banana e Maçã</div><div class="product-price">R$ 8,00</div></div>
+                <div class="qty-controls"><button class="qty-btn" onclick="alterarQtd('vit_banana_maca', -1)">-</button><span class="qty-number" id="qty_vit_banana_maca">0</span><button class="qty-btn" onclick="alterarQtd('vit_banana_maca', 1)">+</button></div>
+            </div>
+        </div>
+
+        <!-- TOTAL CALCULADO -->
+        <div class="total-card">
+            Total dos Itens: <span id="valor_total">R$ 0,00</span>
+        </div>
+
+        <!-- FORMULÁRIO DE PEDIDO -->
+        <div class="order-section">
+            <h2 class="section-title">Finalizar <span>Pedido</span></h2>
             
             <div class="form-group">
                 <label>Seu Nome:</label>
-                <input type="text" id="cli_nome" placeholder="Como podemos te chamar?">
+                <input type="text" id="cli_nome" placeholder="Digite seu nome">
             </div>
 
             <div class="form-group">
-                <label>O que você vai querer hoje?</label>
-                <textarea id="cli_pedido" placeholder="Ex: 1 Suco de Melancia com Limão, 1 Salada de 500g com Leite Condensado..."></textarea>
+                <label>Observações do Pedido:</label>
+                <textarea id="cli_obs" placeholder="Ex: Sem açúcar, suco bem gelado, frutas preferidas para a salada, etc."></textarea>
             </div>
 
             <div class="form-group">
-                <label>Como deseja receber?</label>
+                <label>Forma de Envio:</label>
                 <div class="radio-group">
                     <label class="radio-label">
                         <input type="radio" name="tipo_entrega" value="entrega" onchange="alternarEntrega()" checked> Entrega
@@ -144,41 +217,89 @@
                 </div>
             </div>
 
-            <!-- Box Dinâmico para Entrega -->
             <div id="box-entrega" class="info-box active">
-                <p>🛵 <strong>Taxa de entrega:</strong> O valor do frete será calculado e informado pelo WhatsApp após o envio do pedido.</p>
+                <p>🛵 <strong>Taxa de Entrega:</strong> O valor do frete será informado pelo WhatsApp.</p>
                 <br>
-                <label style="color: var(--verde-texto);">Endereço Completo para Entrega:</label>
+                <label style="color: var(--verde-texto);">Endereço Completo de Entrega:</label>
                 <input type="text" id="cli_endereco" placeholder="Rua, Número, Bairro, Ponto de Referência">
             </div>
 
-            <!-- Box Dinâmico para Retirada -->
             <div id="box-retirada" class="info-box">
-                <p>📍 <strong>Nosso Endereço para Retirada:</strong></p>
-                <p>Via C9,24 Pinheiro /Mare- Bairro Centro</p>
-                <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Aguarde nossa confirmação de que o pedido está pronto antes de vir buscar!</p>
+                <p>📍 <strong>Endereço para Retirada:</strong></p>
+                <p>Via C9,24 - Vila Pinheiro/Mare - Bairro Bonsucesso</p>
             </div>
 
-            <div class="form-group" style="margin-top: 20px;">
+            <div class="form-group" style="margin-top: 15px;">
                 <label>Forma de Pagamento:</label>
                 <select id="cli_pagamento">
                     <option value="Pix Online (Chave enviada no Whats)">Pix Online (Pagamento Antecipado)</option>
-                    <option value="Pix na Entrega">Pix (Pagamento na Entrega/Retirada)</option>
-                    <option value="Cartão de Crédito na Entrega">Cartão de Crédito (Levamos a maquininha)</option>
-                    <option value="Cartão de Débito na Entrega">Cartão de Débito (Levamos a maquininha)</option>
+                    <option value="Pix na Entrega/Retirada">Pix (Na Entrega/Retirada)</option>
+                    <option value="Cartão de Crédito (Maquininha)">Cartão de Crédito (Maquininha)</option>
+                    <option value="Cartão de Débito (Maquininha)">Cartão de Débito (Maquininha)</option>
+                    <option value="VR Benefícios (Maquininha)">VR Benefícios (Maquininha)</option>
+                    <option value="Dinheiro">Dinheiro</option>
                 </select>
             </div>
 
-            <button class="btn-pedir" onclick="enviarPedido()">Enviar Pedido pelo WhatsApp 📲</button>
+            <button class="btn-enviar btn-pedir" onclick="enviarPedido()">Enviar Pedido pelo WhatsApp 📲</button>
         </div>
     </div>
 
     <footer>
-        <p>FruFrutas © 2026 - Feito com muito sabor e carinho.</p>
+        <p>FruFrutas © 2026 - Feito com muito carinho e frescor!</p>
     </footer>
 
     <script>
-        // Função para alternar os campos de Entrega ou Retirada
+        const produtos = {
+            'fruta_melancia': { nome: 'Melancia (500ml)', preco: 8.00 },
+            'fruta_melao': { nome: 'Melão (500ml)', preco: 9.00 },
+            'fruta_mamao': { nome: 'Mamão (500ml)', preco: 8.00 },
+            'fruta_manga': { nome: 'Manga (500ml)', preco: 10.00 },
+            'fruta_abacaxi': { nome: 'Abacaxi (500ml)', preco: 10.00 },
+
+            'salada_500': { nome: 'Salada de Fruta 500ml', preco: 12.00 },
+            'salada_300': { nome: 'Salada de Fruta 300ml', preco: 6.00 },
+
+            'add_leite_cond': { nome: 'Adicional: Leite Condensado', preco: 2.00 },
+            'add_leite_po': { nome: 'Adicional: Leite em Pó', preco: 2.00 },
+            'add_creme_leite': { nome: 'Adicional: Creme de Leite', preco: 2.00 },
+            'add_granola': { nome: 'Adicional: Granola', preco: 2.00 },
+
+            'lanche_frango': { nome: 'Sanduíche de Frango', preco: 10.00 },
+            'lanche_atum': { nome: 'Sanduíche de Atum', preco: 10.00 },
+            'lanche_torta': { nome: 'Torta Salgada', preco: 12.00 },
+
+            'suco_abacaxi_hortela': { nome: 'Suco Abacaxi c/ Hortelã (300ml)', preco: 8.00 },
+            'suco_melancia_limao': { nome: 'Suco Melancia c/ Limão (300ml)', preco: 8.00 },
+            'suco_laranja_acerola': { nome: 'Suco Laranja c/ Acerola (300ml)', preco: 9.00 },
+            'suco_manga_laranja': { nome: 'Suco Manga c/ Laranja (300ml)', preco: 9.00 },
+
+            'vit_abacate': { nome: 'Vitamina Abacate (300ml)', preco: 7.00 },
+            'vit_banana': { nome: 'Vitamina Banana (300ml)', preco: 6.00 },
+            'vit_banana_mamao': { nome: 'Vitamina Banana e Mamão (300ml)', preco: 8.00 },
+            'vit_banana_maca': { nome: 'Vitamina Banana e Maçã (300ml)', preco: 8.00 }
+        };
+
+        const quantidades = {};
+        for (let id in produtos) { quantidades[id] = 0; }
+
+        function alterarQtd(id, delta) {
+            let novaQtd = quantidades[id] + delta;
+            if (novaQtd < 0) novaQtd = 0;
+            quantidades[id] = novaQtd;
+            document.getElementById('qty_' + id).innerText = novaQtd;
+            calcularTotal();
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            for (let id in quantidades) {
+                total += quantidades[id] * produtos[id].preco;
+            }
+            document.getElementById('valor_total').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+            return total;
+        }
+
         function alternarEntrega() {
             const tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
             const boxEntrega = document.getElementById('box-entrega');
@@ -193,37 +314,55 @@
             }
         }
 
-        // Função para formatar a mensagem e abrir o WhatsApp
         function enviarPedido() {
-            const numeroWhatsApp = "5521976615011"; // COLOQUE SEU NÚMERO AQUI (DDD + NUMERO)
+            const numeroWhatsApp = "5521976615011"; // Substitua pelo seu número real com DDD
             
             const nome = document.getElementById('cli_nome').value;
-            const pedido = document.getElementById('cli_pedido').value;
+            const obs = document.getElementById('cli_obs').value;
             const tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
             const pagamento = document.getElementById('cli_pagamento').value;
-            
-            if (!nome || !pedido) {
-                alert("Por favor, preencha seu nome e o que deseja pedir!");
+            const total = calcularTotal();
+
+            if (!nome) {
+                alert("Por favor, preencha seu nome!");
                 return;
             }
 
-            let textoMsg = `*NOVO PEDIDO - FRUFRUTAS* 🍉\n\n`;
-            textoMsg += `👤 *Cliente:* ${nome}\n`;
-            textoMsg += `📝 *Pedido:* ${pedido}\n\n`;
-            
-            if (tipo === 'entrega') {
-                const endereco = document.getElementById('cli_endereco').value;
-                if (!endereco) { alert("Preencha o endereço de entrega!"); return; }
-                textoMsg += `🛵 *Modalidade:* Entrega\n`;
-                textoMsg += `📍 *Endereço:* ${endereco}\n`;
-                textoMsg += `*(Aguardando cálculo do frete)*\n\n`;
-            } else {
-                textoMsg += `🛍️ *Modalidade:* Retirada no Local\n\n`;
+            let itensSelecionados = [];
+            for (let id in quantidades) {
+                if (quantidades[id] > 0) {
+                    let subtotal = quantidades[id] * produtos[id].preco;
+                    itensSelecionados.push(`• ${quantidades[id]}x ${produtos[id].nome} (R$ ${subtotal.toFixed(2).replace('.', ',')})`);
+                }
             }
 
-            textoMsg += `💳 *Pagamento:* ${pagamento}`;
+            if (itensSelecionados.length === 0) {
+                alert("Por favor, escolha pelo menos um item do cardápio!");
+                return;
+            }
 
-            // Codifica a mensagem e abre o app
+            let textoMsg = `*NOVO PEDIDO - FRUFRUTAS* 🍇🍉\n\n`;
+            textoMsg += `👤 *Cliente:* ${nome}\n\n`;
+            textoMsg += `🛒 *ITENS DO PEDIDO:*\n${itensSelecionados.join('\n')}\n\n`;
+            
+            if (obs.trim() !== "") {
+                textoMsg += `📌 *Observações:* ${obs}\n\n`;
+            }
+
+            textoMsg += `💰 *Subtotal dos Produtos:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
+
+            if (tipo === 'entrega') {
+                const endereco = document.getElementById('cli_endereco').value;
+                if (!endereco) { alert("Por favor, preencha o endereço de entrega!"); return; }
+                textoMsg += `🛵 *Forma de Envio:* Entrega\n`;
+                textoMsg += `📍 *Endereço:* ${endereco}\n`;
+                textoMsg += `*(Taxa de entrega a calcular)*\n\n`;
+            } else {
+                textoMsg += `🛍️ *Forma de Envio:* Retirada no Local\n\n`;
+            }
+
+            textoMsg += `💳 *Forma de Pagamento:* ${pagamento}`;
+
             const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(textoMsg)}`;
             window.open(url, '_blank');
         }
